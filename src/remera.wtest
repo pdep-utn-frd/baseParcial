@@ -1,0 +1,57 @@
+	test "costo remera lisa gris grande es 100" {
+		assert.equals(100,remeraLisaGris.costo())
+	}
+	test "costo remera lisa gris chica es 80" {
+		remeraLisaGris.talle(40)
+		assert.equals(80,remeraLisaGris.costo())
+	}
+
+	test "costo remera lisa verde grande es 110" {
+		assert.equals(110,remeraLisaVerde.costo())
+	}
+	test "costo remera lisa verde chica es 88" {
+		remeraLisaVerde.talle(40)
+		assert.equals(88,remeraLisaVerde.costo())
+	}
+
+	test "costo remera bordada con 1 colores es 20 mas 100 por ser lisa" {
+		assert.equals(100+20,remeraBordada.costo())
+	}
+
+	test "costo remera bordada con 5 colores es 50 mas 100 por ser lisa" {
+		//remeraBordada con 5 colores
+		assert.equals(100+50,remeraBordada.costo())
+	}
+
+	test "costo remera sublimada de marca es 175 mas 100 por ser lisa" {
+		assert.equals(100 + 175,remeraSublimada.costo())
+	}
+
+	test "costo remera sublimada sin marca 75 mas 100 por ser lisa" {
+		//remera sublimada sin marca
+		assert.equals(100 + 75,remeraSublimada.costo())
+	}
+	
+	test "Un pedido por 5 remeras lisas grises talle 42 tiene un precio de $500 en Flores" {
+		//pedido en flores
+		assert.equals(5*100,pedidoLiso.precio())
+	}
+	test "El mismo pedido en Avellaneda se vende a $450 (idem anterior pero con un 10% de descuento)" {
+		//pedido en avellaneda
+		assert.equals(5*90,pedidoLiso.precio())
+	}
+
+	test "Suponiendo que tenemos acuerdo comercial con Disney y recibimos un pedido de 4 remeras de Frozen antes mencionadas (costo $275) en Flores se venderían a $1100 (= $275 x 4, no hay descuento)" {
+		// 
+		assert.equals(4*275,pedidoSublimado.precio())
+	}
+
+	test "En Avellaneda, ese mismo pedido costaría un 20% menos ($880)." {
+		//
+		assert.equals(4*275*0.8,pedidoSublimado.precio())
+	}
+	test "Si no tuviéramos acuerdo comercial con Disney, el mismo pedido tendría sólo un 10% de descuento (ergo cuesta $990)" {
+		//
+		assert.equals(4*275*0.9,pedidoSublimado.precio())
+	}
+	
